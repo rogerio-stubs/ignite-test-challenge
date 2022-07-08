@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  database:
+    image: postgres
+    container_name: database_test
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=fin_api
+    ports:
+      - "5430:5432"
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
